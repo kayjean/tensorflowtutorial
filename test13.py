@@ -1,9 +1,17 @@
 # needed libraries
 import tensorflow as tf
+import os
 
 from tensorflow.examples.tutorials.mnist import input_data
 
-logs_path = '/home/kayjean/tensor/logs/convnet'
+if not os.path.exists('./tensor'):
+    os.mkdir('./tensor')
+if not os.path.exists('./tensor/logs'):
+    os.mkdir('./tensor/logs')
+if not os.path.exists('./tensor/logs/convnet'):
+    os.mkdir('./tensor/logs/convnet')
+
+logs_path = './tensor/logs/convnet'
 
 # mnist.train = 55,000 input data
 # mnist.test = 10,000 input data

@@ -3,6 +3,7 @@
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
+import os
 
 # Read the dataset
 from tensorflow.examples.tutorials.mnist import input_data
@@ -83,6 +84,13 @@ def generator(z, batch_size, z_dim):
     # Dimensions of g4: batch_size x 28 x 28 x 1
     return g4
 
+
+if not os.path.exists('./tensor'):
+    os.mkdir('./tensor')
+if not os.path.exists('./tensor/gan'):
+    os.mkdir('./tensor/gan')
+if not os.path.exists('./tensor/gan/img'):
+    os.mkdir('./tensor/gan/img')
 
 
 """ See the fake image we make """
