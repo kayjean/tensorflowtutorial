@@ -18,9 +18,9 @@ weights_l1 = tf.Variable(tf.random_normal([1, 10]))#10个神经元
 biases_l1 = tf.Variable(tf.zeros([1, 10]))
 wx_plust_b_l1 = tf.matmul(x, weights_l1) + biases_l1
 #l1 = tf.nn.tanh(wx_plust_b_l1)#双曲正切函数作为激活函数
-#l1 = tf.nn.softplus(wx_plust_b_l1)#双曲正切函数作为激活函数
-#l1 = tf.nn.relu(wx_plust_b_l1)#双曲正切函数作为激活函数
-l1 = tf.nn.sigmoid(wx_plust_b_l1)#双曲正切函数作为激活函数
+#l1 = tf.nn.softplus(wx_plust_b_l1)
+l1 = tf.nn.relu(wx_plust_b_l1)
+#l1 = tf.nn.sigmoid(wx_plust_b_l1)
 
 #定义输出层
 weights_l2 = tf.Variable(tf.random_normal([10, 1]))#输出层1个神经元
@@ -28,8 +28,8 @@ biases_l2 = tf.Variable(tf.zeros([1, 1]))#一个偏置
 wx_plust_b_l2 = tf.matmul(l1, weights_l2) + biases_l2
 #prediction = tf.nn.tanh(wx_plust_b_l2)#预测结果
 #prediction = tf.nn.softplus(wx_plust_b_l2)#预测结果
-#prediction = tf.nn.relu(wx_plust_b_l2)#预测结果
-prediction = tf.nn.sigmoid(wx_plust_b_l2)#预测结果
+prediction = tf.nn.relu(wx_plust_b_l2)#预测结果
+#prediction = tf.nn.sigmoid(wx_plust_b_l2)#预测结果
 
 #代价函数
 loss = tf.reduce_mean(tf.square(y - prediction))

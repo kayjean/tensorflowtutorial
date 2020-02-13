@@ -1,5 +1,6 @@
 ﻿import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 定義一個添加層的函數
 def add_layer(inputs, input_tensors, output_tensors, activation_function = None):
@@ -41,5 +42,12 @@ for step in range(201):
     sess.run(train, feed_dict = {x_feeds: x_data, y_feeds: y_data})
     if step % 20 == 0:
         print(sess.run(loss, feed_dict = {x_feeds: x_data, y_feeds: y_data}))
+
+#画图
+prediction_value = sess.run(output_layer, feed_dict = {x_feeds: x_data, y_feeds: y_data})
+plt.figure()
+plt.scatter(x_data, y_data)#画散点图
+plt.plot(x_data, prediction_value, 'r-', lw = 5)#画预测的实线，红色
+plt.show()
 
 sess.close()
