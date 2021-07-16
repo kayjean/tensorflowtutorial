@@ -92,7 +92,7 @@ checkpoint = keras.callbacks.ModelCheckpoint('glue_vgg16.h5', monitor='val_loss'
 my_model_hist = my_model.fit_generator(
                             train_generator,
                             steps_per_epoch=2*train_generator.samples/train_generator.batch_size ,
-                            epochs=2,
+                            epochs=25,
                             validation_data=validation_generator,
                             validation_steps=validation_generator.samples/validation_generator.batch_size,
                             verbose=1,
